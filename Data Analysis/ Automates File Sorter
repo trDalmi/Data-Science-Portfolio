@@ -1,0 +1,144 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "gpuType": "V28",
+      "authorship_tag": "ABX9TyMhzel/B094DtthV0hTqJB3",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "accelerator": "TPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/trDalmi/DATA/blob/main/Data%20Analysis/%20Automates%20File%20Sorter\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 38,
+      "metadata": {
+        "id": "KKxNicWkgqwD"
+      },
+      "outputs": [],
+      "source": [
+        "import os, shutil  #operating system and shell utilities\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "path = r\"/content/sample_data/Files./\""
+      ],
+      "metadata": {
+        "id": "UbFm4V0EgtLd"
+      },
+      "execution_count": 39,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "file_name = os.listdir(path)"
+      ],
+      "metadata": {
+        "id": "qhKiKcn6hVAY"
+      },
+      "execution_count": 28,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "unique_extensions = set()\n",
+        "for file in file_name:\n",
+        "  root, ext = os.path.splitext(file)\n",
+        "  if ext:\n",
+        "    unique_extensions.add(ext[1:])\n",
+        "    print(root)\n",
+        "\n",
+        "for extensions in unique_extensions:\n",
+        "  folder_name = extensions +\"files\"\n",
+        "  if not os.path.exists(os.path.join(path,folder_name)):\n",
+        "    os.makedirs(os.path.join(path,folder_name))\n",
+        "\n",
+        "for file in os.listdir(path):\n",
+        "  root, ext = os.path.splitext(file)\n",
+        "  if ext:\n",
+        "    ext = ext[1:]\n",
+        "    if ext in unique_extensions:\n",
+        "      shutil.move(os.path.join(path,file),os.path.join(path,ext+\"files\",file))"
+      ],
+      "metadata": {
+        "id": "RbarBd_qkyx1"
+      },
+      "execution_count": 42,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Separating file with mentioning names.\n"
+      ],
+      "metadata": {
+        "id": "t7VQdx3lmlHU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Folder_names =['csv files','image files','text files']\n",
+        "for i in range(len(Folder_names)):\n",
+        "  if not os.path.exists(path+Folder_names[i]):\n",
+        "    os.makedirs(path + Folder_names[i])"
+      ],
+      "metadata": {
+        "id": "PIC0jWjzhYuD"
+      },
+      "execution_count": 29,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for file in file_name:\n",
+        "  if \".csv\" in file and not os.path.exists(path + \"csv files/\"+file):\n",
+        "    shutil.move(path+file,path+\"csv files/\"+file)\n",
+        "\n",
+        "  elif \".jpg\" in file and not os.path.exists(path + \"image files/\"+file):\n",
+        "    shutil.move(path+file,path+\"image files/\"+file)\n",
+        "\n",
+        "  elif \".pdf\" in file and not os.path.exists(path + \"text files/\"+file):\n",
+        "    shutil.move(path+file,path+\"text files/\"+file)\n"
+      ],
+      "metadata": {
+        "id": "VIRnN_22hlrx"
+      },
+      "execution_count": 30,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "3f9U2Hs7jN7P"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
