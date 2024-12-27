@@ -3,4 +3,5 @@ This Portfolio is a compilation of all the Data Analysis, Data Science and Compu
 
 For a more visually pleasant experience for browsing the portfolio, check out [Anjali Thakue Portfolio][]
 
-[Data Analysis]:https://github.com/trDalmi/Data-Science-Portfolio/tree/main/Data%20Analysis
+[Data Analysis][data-analysis-link]
+[data-analyis-link] : https://github.com/trDalmi/Data-Science-Portfolio/tree/main/Data%20Analysis
