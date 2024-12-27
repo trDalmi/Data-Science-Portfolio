@@ -1,2 +1,4 @@
-# DATA
-This repository contains content related to data fields like Data Analysis, Machine Learning, Data Science and Computer Vision. I am going to include some tiny practice projects and routines in this repository.
+# Portfolio
+This Portfolio is a compilation of all the Data Analysis, Data Science and Computer Vision projects I have done for self-learning and hobby purposes. Presented in the form of Jupyter notebooks.
+
+For a more visually pleasant experience for browsing the portfolio, check out [Anjali Thakue Portfolio][]
