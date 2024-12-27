@@ -4,3 +4,4 @@ This Portfolio is a compilation of all the Data Analysis, Data Science and Compu
 For a more visually pleasant experience for browsing the portfolio, check out [Anjali Thakue Portfolio][]
 
 ## Data Analysis
+[Web-Scrapping](Data Analysis/Web_Scrapping.ipynb)
